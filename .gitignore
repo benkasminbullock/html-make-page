@@ -19,3 +19,4 @@ MANIFEST
 README
 examples/*-out.txt
 options.pod
+t/options.t

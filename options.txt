@@ -49,5 +49,5 @@ The language of your page, for example "en" for English. This is added
 to the opening <html> tag.
 
 %%
-%%example: "en"
+example: "en"
 
