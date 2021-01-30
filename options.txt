@@ -51,3 +51,43 @@ to the opening <html> tag.
 %%
 example: "en"
 
+name: js
+%%desc:
+
+An array reference of names of JavaScript files you want to include in
+your header. To add C<async> or C<defer> to the script tag, use a hash
+reference in place of the name of the script with the keys C<src> for
+the file and then any true value for C<async> or C<defer> to add
+those.
+
+%%
+example: ['cat.js', 'dog.js', {src => 'parrot.js', async => 1}]
+
+name: meta
+%%desc:
+
+Meta-tag things which you want to add, for example author, description
+or keywords meta-tags. The value must be an array reference containing
+hash references.
+
+Note that the C<viewport> meta tag and the C<charset> meta tag are
+included by default.
+
+%%
+example: [{name => 'author', content => 'Long John Silver'}]
+
+name: link
+%%desc:
+
+Link elements. The value must be an array reference containing hash
+references. Each hash reference must contain the compulsory C<rel>
+key, otherwise it is not included in the output. 
+
+If no C<href> is present, a warning is printed. This warning may be
+turned off with L</quiet>.
+
+CSS stylesheets can be added using this, but they can also be added
+more simply using the L</css> option.
+
+%%
+example: [{rel=>"icon", type=>"image/png", href=>"favicon.png"}]

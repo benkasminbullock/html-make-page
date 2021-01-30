@@ -57,6 +57,11 @@ The output has C<< <meta charset='UTF-8'> >> added automatically.
 The viewport meta element, necessary for viewing web pages on mobile
 phones, is automatically added to the output.
 
+=item XHTML tags are not supported
+
+XHTML tags of the form C<< <br/> >> are not necessary in HTML 5 and
+are not supported.
+
 =back
 
 =head1 FUNCTIONS
@@ -64,6 +69,9 @@ phones, is automatically added to the output.
 =head2 make_page
 
     my ($html, $body) = make_page (title => 'My Cool Page');
+
+The argument to the function is a hash of options of the form
+C<make_page (%options)>. The options are as follows.
 
 =head3 Options
 

@@ -37,22 +37,19 @@ for (@options) {
 $_->{desc}
 
 EOF
+    my $example;
     if ($name ne 'style') {
-	$test .=<<EOF;
-\$warnings = '';
-eval {
-    make_page ($name => $_->{example});
-};
-ok (! \$\@, "No errors");
-ok (\$warnings !~ /Unknown option/, "Option $name recognised");
-EOF
+	$example = "    my (\$h, \$b) = make_page ($name => $_->{example});\n";
     }
     else {
-	$test .=<<EOF;
-\$warnings = '';
-my \$example =$_->{example}
+	$example = <<EOF;
+    my \$$name = $_->{example}
+    my (\$h, \$b) = make_page ($name => \$$name);
+EOF
+    }
+    $test .=<<EOF;
 eval {
-    make_page ($name => \$example);
+$example
 };
 ok (! \$\@, "No errors");
 if (\$\@) {
@@ -60,8 +57,7 @@ if (\$\@) {
 }
 ok (\$warnings !~ /Unknown option/, "Option $name recognised");
 EOF
-
-    }
+    $pod .= "\n$example\n";
 }
 $test .=<<'EOF';
 done_testing ();
