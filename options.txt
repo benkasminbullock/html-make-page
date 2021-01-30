@@ -1,0 +1,53 @@
+name: css
+%%desc:
+
+An array reference giving a list of style sheets to be added using
+<link> in <head>.
+
+%%
+example: ['my.css', 'your.css']
+
+name: style
+%%desc:
+
+CSS in text format. The starting and closing <style> html tags will be
+added for you.
+
+%%
+%%example:
+<<EOF;
+h1 => {
+   color => 'white';
+   background-color => '#FFF';
+}
+EOF
+%%
+
+name: title
+%%desc:
+
+The title of your page. A <title> element is "compulsory" in HTML so
+if you omit this a warning is printed. Suppress the warning with
+L</quiet>.
+
+%%
+example: "My Cool Page"
+
+name: quiet
+%%desc:
+
+Suppress warnings about harmless things like omitted titles and
+unknown options.
+
+%%
+example: 1
+
+name: lang
+%%desc:
+
+The language of your page, for example "en" for English. This is added
+to the opening <html> tag.
+
+%%
+%%example: "en"
+

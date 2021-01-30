@@ -17,11 +17,11 @@ This method was added in version [% version %] of the module.
 
 =head1 NAME
 
-[% info.colon %] - abstract here.
+[% info.colon %] - Automate making HTML <head> and <body>
 
 =head1 SYNOPSIS
 
-    use [% info.colon %];
+[% example("synopsis") %]
 
 =head1 VERSION
 
@@ -31,6 +31,56 @@ corresponding to L<git commit [% commit.commit %]|[% info.repo
 
 =head1 DESCRIPTION
 
+This module simplifies generating the <head> and <body> elements of an
+HTML page using L<HTML::Make>.
+
+=head2 Restrictions
+
+The output is restricted to the following variants of HTML:
+
+=over
+
+=item HTML 5 only
+
+The output has a doctype of C<< <!DOCTYPE html> >>.
+
+=item Lower-case tags only
+
+No <HTML> etc., the tags generated are lower-case only.
+
+=item UTF-8 encoding only
+
+The output has C<< <meta charset='UTF-8'> >> added automatically.
+
+=item Viewport is added automatically
+
+The viewport meta element, necessary for viewing web pages on mobile
+phones, is automatically added to the output.
+
+=back
+
 =head1 FUNCTIONS
+
+=head2 make_page
+
+    my ($html, $body) = make_page (title => 'My Cool Page');
+
+=head3 Options
+
+=over
+
+[% INCLUDE "options.pod" %]
+
+=back
+
+=head1 DEPENDENCIES
+
+=over
+
+=item HTML::Make
+
+This module is based on L<HTML::Make>.
+
+=back
 
 [% INCLUDE "author" %]

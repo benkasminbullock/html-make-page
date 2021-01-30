@@ -18,3 +18,4 @@ lib/HTML/Make/Page.pod
 MANIFEST
 README
 examples/*-out.txt
+options.pod
