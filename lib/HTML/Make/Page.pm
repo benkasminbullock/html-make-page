@@ -9,7 +9,7 @@ our @EXPORT_OK = qw/make_page/;
 our %EXPORT_TAGS = (
     all => \@EXPORT_OK,
 );
-our $VERSION = '0.00_01';
+our $VERSION = '0.01';
 use HTML::Make '0.15';
 
 sub add_meta
