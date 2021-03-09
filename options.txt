@@ -16,9 +16,9 @@ added for you.
 %%
 %%example:
 <<EOF;
-h1 => {
-   color => 'white';
-   background-color => '#FFF';
+h1 {
+   color: white;
+   background-color: #FFF;
 }
 EOF
 %%
