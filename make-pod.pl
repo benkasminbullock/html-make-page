@@ -69,7 +69,7 @@ exit;
 
 sub usage
 {
-print <<USAGEEOF;
+    print <<USAGEEOF;
 --verbose
 --force
 USAGEEOF

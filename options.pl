@@ -1,10 +1,5 @@
 #!/home/ben/software/install/bin/perl
-use warnings;
-use strict;
-use utf8;
-use FindBin '$Bin';
-use File::Slurper 'write_text';
-use Table::Readable 'read_table';
+use Z;
 my @options = read_table ("$Bin/options.txt");
 # The options are all lower case so no case-folding needs to be done.
 @options = sort {$a->{name} cmp $b->{name}} @options;
@@ -62,5 +57,15 @@ EOF
 $test .=<<'EOF';
 done_testing ();
 EOF
-write_text ("$Bin/options.pod", $pod);
-write_text ("$Bin/t/options.t", $test);
+write_ro ("$Bin/options.pod", $pod);
+write_ro ("$Bin/t/options.t", $test);
+exit;
+
+sub write_ro ($podfile, $pod)
+{
+    if (-f $podfile) {
+	chmod 0644, $podfile or die $!;
+    }
+    write_text ($podfile, $pod);
+    chmod 0444, $podfile or die $!;
+}

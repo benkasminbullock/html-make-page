@@ -60,6 +60,8 @@ reference in place of the name of the script with the keys C<src> for
 the file and then any true value for C<async> or C<defer> to add
 those.
 
+To add JavaScript as text, use a field C<text>.
+
 %%
 example: ['cat.js', 'dog.js', {src => 'parrot.js', async => 1}]
 
