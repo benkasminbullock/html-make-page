@@ -10,7 +10,7 @@ our %EXPORT_TAGS = (
     all => \@EXPORT_OK,
 );
 our $VERSION = '0.03';
-use HTML::Make '0.16';
+use HTML::Make 0.16;
 
 sub add_meta
 {
